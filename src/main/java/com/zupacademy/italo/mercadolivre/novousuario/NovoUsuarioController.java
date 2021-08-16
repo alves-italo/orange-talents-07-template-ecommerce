@@ -3,6 +3,7 @@ package com.zupacademy.italo.mercadolivre.novousuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,9 @@ import javax.validation.Valid;
 public class NovoUsuarioController {
     @PersistenceContext
     EntityManager manager;
+
     @PostMapping
+    @Transactional
     public ResponseEntity<?> cadastrarUsuario(@RequestBody @Valid NovoUsuarioRequest request) {
         Usuario usuario = request.toModel();
         manager.persist(usuario);
