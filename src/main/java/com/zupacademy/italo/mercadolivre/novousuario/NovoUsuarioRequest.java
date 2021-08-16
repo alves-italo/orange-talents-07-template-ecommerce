@@ -1,5 +1,6 @@
 package com.zupacademy.italo.mercadolivre.novousuario;
 
+import com.zupacademy.italo.mercadolivre.utilidades.ValorUnico;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
@@ -8,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 public class NovoUsuarioRequest {
     @NotBlank
     @Email
+    @ValorUnico(target = Usuario.class, field = "login")
     private String login;
 
     @NotBlank
