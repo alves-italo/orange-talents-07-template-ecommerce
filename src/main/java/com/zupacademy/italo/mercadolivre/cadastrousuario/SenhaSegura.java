@@ -1,4 +1,4 @@
-package com.zupacademy.italo.mercadolivre.novousuario;
+package com.zupacademy.italo.mercadolivre.cadastrousuario;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

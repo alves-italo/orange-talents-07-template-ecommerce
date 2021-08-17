@@ -1,7 +1,9 @@
-package com.zupacademy.italo.mercadolivre.novoproduto;
+package com.zupacademy.italo.mercadolivre.cadastroproduto;
 
-import com.zupacademy.italo.mercadolivre.novacategoria.CategoriaRepository;
-import com.zupacademy.italo.mercadolivre.novousuario.Usuario;
+import com.zupacademy.italo.mercadolivre.cadastrocategoria.CategoriaRepository;
+import com.zupacademy.italo.mercadolivre.cadastroopiniao.NovaOpiniaoRequest;
+import com.zupacademy.italo.mercadolivre.cadastroopiniao.Opiniao;
+import com.zupacademy.italo.mercadolivre.cadastrousuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,17 +48,4 @@ public class NovoProdutoController {
 
         return ResponseEntity.ok().build();
     }
-
-    @PostMapping(path = "/{id}/opinioes")
-    @Transactional
-    public ResponseEntity<?> adicionaOpiniao(@PathVariable("id") Long id, @RequestBody @Valid NovaOpiniaoRequest request, @AuthenticationPrincipal Usuario usuarioLogado) {
-        Produto produto = produtoRepository.findById(id).get();
-        Opiniao opiniao = request.toModel(produto, usuarioLogado);
-
-        produto.adicionaOpiniao(opiniao);
-        produtoRepository.save(produto);
-
-        return ResponseEntity.ok().build();
-    }
-
 }

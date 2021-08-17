@@ -1,4 +1,4 @@
-package com.zupacademy.italo.mercadolivre.novousuario;
+package com.zupacademy.italo.mercadolivre.cadastrousuario;
 
 import com.zupacademy.italo.mercadolivre.utilidades.ValorUnico;
 import org.hibernate.validator.constraints.Length;

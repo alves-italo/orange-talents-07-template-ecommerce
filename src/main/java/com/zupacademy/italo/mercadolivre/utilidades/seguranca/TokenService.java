@@ -2,7 +2,7 @@ package com.zupacademy.italo.mercadolivre.utilidades.seguranca;
 
 import java.util.Date;
 
-import com.zupacademy.italo.mercadolivre.novousuario.Usuario;
+import com.zupacademy.italo.mercadolivre.cadastrousuario.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.zupacademy.italo.mercadolivre.utilidades.seguranca;
 
-import com.zupacademy.italo.mercadolivre.novousuario.UsuarioRepository;
+import com.zupacademy.italo.mercadolivre.cadastrousuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

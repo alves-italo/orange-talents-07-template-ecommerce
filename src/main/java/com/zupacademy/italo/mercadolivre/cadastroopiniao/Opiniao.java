@@ -1,6 +1,7 @@
-package com.zupacademy.italo.mercadolivre.novoproduto;
+package com.zupacademy.italo.mercadolivre.cadastroopiniao;
 
-import com.zupacademy.italo.mercadolivre.novousuario.Usuario;
+import com.zupacademy.italo.mercadolivre.cadastroproduto.Produto;
+import com.zupacademy.italo.mercadolivre.cadastrousuario.Usuario;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;

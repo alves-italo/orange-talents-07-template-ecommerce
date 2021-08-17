@@ -1,4 +1,4 @@
-package com.zupacademy.italo.mercadolivre.novoproduto;
+package com.zupacademy.italo.mercadolivre.cadastroproduto;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

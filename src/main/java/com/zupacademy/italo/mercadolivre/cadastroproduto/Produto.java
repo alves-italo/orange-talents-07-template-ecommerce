@@ -1,7 +1,8 @@
-package com.zupacademy.italo.mercadolivre.novoproduto;
+package com.zupacademy.italo.mercadolivre.cadastroproduto;
 
-import com.zupacademy.italo.mercadolivre.novacategoria.Categoria;
-import com.zupacademy.italo.mercadolivre.novousuario.Usuario;
+import com.zupacademy.italo.mercadolivre.cadastrocategoria.Categoria;
+import com.zupacademy.italo.mercadolivre.cadastroopiniao.Opiniao;
+import com.zupacademy.italo.mercadolivre.cadastrousuario.Usuario;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 

@@ -1,4 +1,4 @@
-package com.zupacademy.italo.mercadolivre.novacategoria;
+package com.zupacademy.italo.mercadolivre.cadastrocategoria;
 
 import com.zupacademy.italo.mercadolivre.utilidades.ExisteId;
 import com.zupacademy.italo.mercadolivre.utilidades.ValorUnico;

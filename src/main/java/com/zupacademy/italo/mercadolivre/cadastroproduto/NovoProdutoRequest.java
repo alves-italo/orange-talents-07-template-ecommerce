@@ -1,8 +1,8 @@
-package com.zupacademy.italo.mercadolivre.novoproduto;
+package com.zupacademy.italo.mercadolivre.cadastroproduto;
 
-import com.zupacademy.italo.mercadolivre.novacategoria.Categoria;
-import com.zupacademy.italo.mercadolivre.novacategoria.CategoriaRepository;
-import com.zupacademy.italo.mercadolivre.novousuario.Usuario;
+import com.zupacademy.italo.mercadolivre.cadastrocategoria.Categoria;
+import com.zupacademy.italo.mercadolivre.cadastrocategoria.CategoriaRepository;
+import com.zupacademy.italo.mercadolivre.cadastrousuario.Usuario;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.Valid;

@@ -1,4 +1,4 @@
-package com.zupacademy.italo.mercadolivre.novacategoria;
+package com.zupacademy.italo.mercadolivre.cadastrocategoria;
 
 import javax.persistence.*;
 

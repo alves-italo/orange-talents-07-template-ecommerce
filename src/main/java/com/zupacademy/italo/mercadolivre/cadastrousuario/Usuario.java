@@ -1,4 +1,4 @@
-package com.zupacademy.italo.mercadolivre.novousuario;
+package com.zupacademy.italo.mercadolivre.cadastrousuario;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.security.core.GrantedAuthority;

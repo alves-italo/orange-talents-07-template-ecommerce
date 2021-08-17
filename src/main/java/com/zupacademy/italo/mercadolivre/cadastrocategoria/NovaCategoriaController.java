@@ -1,4 +1,4 @@
-package com.zupacademy.italo.mercadolivre.novacategoria;
+package com.zupacademy.italo.mercadolivre.cadastrocategoria;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
