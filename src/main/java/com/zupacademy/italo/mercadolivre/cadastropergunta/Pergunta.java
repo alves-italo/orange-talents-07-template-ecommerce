@@ -29,4 +29,16 @@ public class Pergunta {
         this.produto = produto;
         this.autor = autor;
     }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public Usuario getAutor() {
+        return autor;
+    }
 }

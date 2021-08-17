@@ -2,6 +2,7 @@ package com.zupacademy.italo.mercadolivre.cadastroproduto;
 
 import com.zupacademy.italo.mercadolivre.cadastrocategoria.Categoria;
 import com.zupacademy.italo.mercadolivre.cadastroopiniao.Opiniao;
+import com.zupacademy.italo.mercadolivre.cadastropergunta.Pergunta;
 import com.zupacademy.italo.mercadolivre.cadastrousuario.Usuario;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashSet;
@@ -27,7 +29,7 @@ public class Produto {
     private String nome;
     @NotNull
     @Positive
-    private Double valor;
+    private BigDecimal valor;
     @PositiveOrZero
     private int quantidade;
     @NotBlank
@@ -46,6 +48,9 @@ public class Produto {
     @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
     private Set<Opiniao> opinioes = new HashSet<>();
 
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
+    private Set<Pergunta> perguntas = new HashSet<>();
+
     @ManyToOne
     private Usuario dono;
 
@@ -56,7 +61,7 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(String nome, Double valor, int quantidade, String descricao, Categoria categoria, Collection<NovaCaracteristicaRequest> caracteristicas, Usuario dono) {
+    public Produto(String nome, BigDecimal valor, int quantidade, String descricao, Categoria categoria, Collection<NovaCaracteristicaRequest> caracteristicas, Usuario dono) {
         this.nome = nome;
         this.valor = valor;
         this.quantidade = quantidade;
@@ -77,7 +82,47 @@ public class Produto {
         return this.dono.equals(usuario);
     }
 
-    public void adicionaOpiniao(Opiniao opiniao) {
+    public void adiciona(Opiniao opiniao) {
         this.opinioes.add(opiniao);
+    }
+
+    public void adiciona(Pergunta pergunta) {
+        this.perguntas.add(pergunta);
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public Set<CaracteristicaProduto> getCaracteristicas() {
+        return caracteristicas;
+    }
+
+    public Set<ImagemProduto> getImagens() {
+        return imagens;
+    }
+
+    public Set<Opiniao> getOpinioes() {
+        return opinioes;
+    }
+
+    public Set<Pergunta> getPerguntas() {
+        return perguntas;
     }
 }

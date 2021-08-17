@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class NovoProdutoRequest {
     private String nome;
     @NotNull
     @Positive
-    private Double valor;
+    private BigDecimal valor;
     @PositiveOrZero
     private int quantidade;
     @NotBlank
@@ -29,7 +30,7 @@ public class NovoProdutoRequest {
     @Valid
     private List<NovaCaracteristicaRequest> caracteristicas = new ArrayList<>();
 
-    public NovoProdutoRequest(String nome, Double valor, int quantidade, String descricao, Long idCategoria, List<NovaCaracteristicaRequest> caracteristicas) {
+    public NovoProdutoRequest(String nome, BigDecimal valor, int quantidade, String descricao, Long idCategoria, List<NovaCaracteristicaRequest> caracteristicas) {
         this.nome = nome;
         this.valor = valor;
         this.quantidade = quantidade;

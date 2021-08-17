@@ -25,7 +25,7 @@ public class NovaOpiniaoController {
         Produto produto = produtoRepository.findById(id).get();
         Opiniao opiniao = request.toModel(produto, usuarioLogado);
 
-        produto.adicionaOpiniao(opiniao);
+        produto.adiciona(opiniao);
         produtoRepository.save(produto);
 
         return ResponseEntity.ok().build();

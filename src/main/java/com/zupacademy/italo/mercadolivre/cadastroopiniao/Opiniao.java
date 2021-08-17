@@ -57,4 +57,20 @@ public class Opiniao {
     public int hashCode() {
         return Objects.hash(id, produto, dono);
     }
+
+    public Integer getNota() {
+        return this.nota;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public Usuario getUsuario() {
+        return this.dono;
+    }
 }

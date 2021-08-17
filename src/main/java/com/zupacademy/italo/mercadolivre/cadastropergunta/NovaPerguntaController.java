@@ -23,16 +23,14 @@ public class NovaPerguntaController {
     @Autowired
     CentralDeEmail centralDeEmail;
 
-    @PersistenceContext
-    EntityManager manager;
-
     @PostMapping(path = "/produtos/{id}/perguntas")
     @Transactional
     public ResponseEntity<?> adicionaPergunta(@PathVariable("id") Long id, @RequestBody @Valid NovaPerguntaRequest request, @AuthenticationPrincipal Usuario usuarioLogado) {
         Produto produto = produtoRepository.findById(id).get();
         Pergunta pergunta = request.toModel(produto, usuarioLogado);
 
-        manager.persist(pergunta);
+        produto.adiciona(pergunta);
+        produtoRepository.save(produto);
 
         centralDeEmail.notificaVendedorSobrePergunta(pergunta);
 
