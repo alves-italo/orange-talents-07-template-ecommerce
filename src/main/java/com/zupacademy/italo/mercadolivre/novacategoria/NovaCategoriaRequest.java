@@ -1,5 +1,6 @@
 package com.zupacademy.italo.mercadolivre.novacategoria;
 
+import com.zupacademy.italo.mercadolivre.utilidades.ExisteId;
 import com.zupacademy.italo.mercadolivre.utilidades.ValorUnico;
 
 import javax.validation.constraints.NotBlank;
@@ -9,6 +10,7 @@ public class NovaCategoriaRequest {
     @ValorUnico(target = Categoria.class, field = "nome")
     private String nome;
 
+    @ExisteId(domainClass = Categoria.class, fieldName = "id")
     private Long idCategoriaMae;
 
     public NovaCategoriaRequest(String nome, Long idCategoriaMae) {

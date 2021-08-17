@@ -42,6 +42,9 @@ public class Produto {
     @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
     private Set<ImagemProduto> imagens = new HashSet<>();
 
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
+    private Set<Opiniao> opinioes = new HashSet<>();
+
     @ManyToOne
     private Usuario dono;
 
@@ -71,5 +74,9 @@ public class Produto {
 
     public boolean pertenceA(Usuario usuario) {
         return this.dono.equals(usuario);
+    }
+
+    public void adicionaOpiniao(Opiniao opiniao) {
+        this.opinioes.add(opiniao);
     }
 }

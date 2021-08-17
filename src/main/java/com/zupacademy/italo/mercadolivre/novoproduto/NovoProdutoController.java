@@ -46,4 +46,17 @@ public class NovoProdutoController {
 
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping(path = "/{id}/opinioes")
+    @Transactional
+    public ResponseEntity<?> adicionaOpiniao(@PathVariable("id") Long id, @RequestBody @Valid NovaOpiniaoRequest request, @AuthenticationPrincipal Usuario usuarioLogado) {
+        Produto produto = produtoRepository.findById(id).get();
+        Opiniao opiniao = request.toModel(produto, usuarioLogado);
+
+        produto.adicionaOpiniao(opiniao);
+        produtoRepository.save(produto);
+
+        return ResponseEntity.ok().build();
+    }
+
 }
