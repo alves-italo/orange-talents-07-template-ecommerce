@@ -12,7 +12,7 @@ public class DetalheProdutoController {
     @Autowired
     ProdutoRepository produtoRepository;
 
-    @GetMapping(path = "/produtos/{id}")
+    @GetMapping(value = "/produtos/{id}")
     public DetalheProdutoResponse detalharProduto(@PathVariable Long id){
         Produto produto =  produtoRepository.getById(id);
         return new DetalheProdutoResponse(produto);

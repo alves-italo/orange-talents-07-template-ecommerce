@@ -19,7 +19,7 @@ public class NovaOpiniaoController {
     @Autowired
     ProdutoRepository produtoRepository;
 
-    @PostMapping(path = "/produtos/{id}/opinioes")
+    @PostMapping(value = "/produtos/{id}/opinioes")
     @Transactional
     public ResponseEntity<?> adicionaOpiniao(@PathVariable("id") Long id, @RequestBody @Valid NovaOpiniaoRequest request, @AuthenticationPrincipal Usuario usuarioLogado) {
         Produto produto = produtoRepository.findById(id).get();

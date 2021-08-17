@@ -35,7 +35,7 @@ public class NovoProdutoController {
         return new ResponseEntity<>(produto, HttpStatus.CREATED);
     }
 
-    @PostMapping(path = "/{id}/imagens")
+    @PostMapping(value = "/{id}/imagens")
     @Transactional
     public ResponseEntity<?> adicionaImagens(@PathVariable("id") Long id, @Valid NovaImagemRequest imagensRequest, @AuthenticationPrincipal Usuario usuarioLogado) {
         Set<String> urlImagens = imageUploader.enviar(imagensRequest.getImagens());

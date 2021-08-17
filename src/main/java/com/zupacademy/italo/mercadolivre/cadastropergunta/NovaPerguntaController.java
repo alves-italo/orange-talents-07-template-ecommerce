@@ -23,7 +23,7 @@ public class NovaPerguntaController {
     @Autowired
     CentralDeEmail centralDeEmail;
 
-    @PostMapping(path = "/produtos/{id}/perguntas")
+    @PostMapping(value = "/produtos/{id}/perguntas")
     @Transactional
     public ResponseEntity<?> adicionaPergunta(@PathVariable("id") Long id, @RequestBody @Valid NovaPerguntaRequest request, @AuthenticationPrincipal Usuario usuarioLogado) {
         Produto produto = produtoRepository.findById(id).get();

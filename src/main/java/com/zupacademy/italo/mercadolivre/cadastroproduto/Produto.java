@@ -125,4 +125,13 @@ public class Produto {
     public Set<Pergunta> getPerguntas() {
         return perguntas;
     }
+
+    public boolean abaterDoEstoque(int quantidade) {
+        if(quantidade <= this.quantidade) {
+            this.quantidade -= quantidade;
+            return true;
+        }
+
+        return false;
+    }
 }
