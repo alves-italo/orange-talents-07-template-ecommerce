@@ -2,6 +2,7 @@ package com.zupacademy.italo.mercadolivre.novoproduto;
 
 import com.zupacademy.italo.mercadolivre.novacategoria.Categoria;
 import com.zupacademy.italo.mercadolivre.novacategoria.CategoriaRepository;
+import com.zupacademy.italo.mercadolivre.novousuario.Usuario;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.Valid;
@@ -37,9 +38,8 @@ public class NovoProdutoRequest {
         this.caracteristicas.addAll(caracteristicas);
     }
 
-    public Produto toModel(CategoriaRepository categoriaRepository) {
+    public Produto toModel(CategoriaRepository categoriaRepository, Usuario dono) {
         Categoria categoria = categoriaRepository.findById(this.idCategoria).get();
-
-        return new Produto(this.nome, this.valor, this.quantidade, this.descricao, categoria, this.caracteristicas);
+        return new Produto(this.nome, this.valor, this.quantidade, this.descricao, categoria, this.caracteristicas, dono);
     }
 }
