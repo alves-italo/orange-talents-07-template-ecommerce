@@ -12,6 +12,6 @@ import java.util.stream.Collectors;
 public class ImageUploader {
 
     public Set<String> enviar(List<MultipartFile> imagens) {
-        return imagens.stream().map(imagem -> "https://bucket.io/" + imagem.getOriginalFilename() + UUID.randomUUID().toString()).collect(Collectors.toSet());
+        return imagens.stream().map(imagem -> "https://bucket.io/" + imagem.getOriginalFilename() + UUID.randomUUID()).collect(Collectors.toSet());
     }
 }

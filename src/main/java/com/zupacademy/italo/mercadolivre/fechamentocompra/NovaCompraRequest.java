@@ -10,12 +10,12 @@ import javax.validation.constraints.Positive;
 
 public class NovaCompraRequest {
     @Positive
-    private int quantidade;
+    private final int quantidade;
     @NotNull
-    private Long idProduto;
+    private final Long idProduto;
 
     @NotNull
-    private GatewayPagamento gateway;
+    private final GatewayPagamento gateway;
 
     public NovaCompraRequest(int quantidade, Long idProduto, GatewayPagamento gateway) {
         this.quantidade = quantidade;

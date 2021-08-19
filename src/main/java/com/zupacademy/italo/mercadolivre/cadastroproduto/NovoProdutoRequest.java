@@ -13,22 +13,22 @@ import java.util.List;
 
 public class NovoProdutoRequest {
     @NotBlank
-    private String nome;
+    private final String nome;
     @NotNull
     @Positive
-    private BigDecimal valor;
+    private final BigDecimal valor;
     @PositiveOrZero
-    private int quantidade;
+    private final int quantidade;
     @NotBlank
     @Length(max = 1000)
-    private String descricao;
+    private final String descricao;
 
     @NotNull
-    private Long idCategoria;
+    private final Long idCategoria;
 
     @Size(min = 3)
     @Valid
-    private List<NovaCaracteristicaRequest> caracteristicas = new ArrayList<>();
+    private final List<NovaCaracteristicaRequest> caracteristicas = new ArrayList<>();
 
     public NovoProdutoRequest(String nome, BigDecimal valor, int quantidade, String descricao, Long idCategoria, List<NovaCaracteristicaRequest> caracteristicas) {
         this.nome = nome;

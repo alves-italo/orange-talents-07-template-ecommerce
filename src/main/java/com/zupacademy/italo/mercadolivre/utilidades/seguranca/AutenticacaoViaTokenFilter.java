@@ -16,8 +16,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
 	
-	private TokenService tokenService;
-	private UsuarioRepository repository;
+	private final TokenService tokenService;
+	private final UsuarioRepository repository;
 
 	public AutenticacaoViaTokenFilter(TokenService tokenService, UsuarioRepository repository) {
 		this.tokenService = tokenService;
@@ -50,7 +50,7 @@ public class AutenticacaoViaTokenFilter extends OncePerRequestFilter {
 			return null;
 		}
 		
-		return token.substring(7, token.length());
+		return token.substring(7);
 	}
 
 }

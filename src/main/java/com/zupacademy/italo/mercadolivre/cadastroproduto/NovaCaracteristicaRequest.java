@@ -4,9 +4,9 @@ import javax.validation.constraints.NotBlank;
 
 public class NovaCaracteristicaRequest {
     @NotBlank
-    private String nome;
+    private final String nome;
     @NotBlank
-    private String descricao;
+    private final String descricao;
 
     public NovaCaracteristicaRequest(String nome, String descricao) {
         this.nome = nome;

@@ -3,7 +3,7 @@ package com.zupacademy.italo.mercadolivre.cadastrousuario;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class SenhaSegura {
-    private String senha;
+    private final String senha;
 
     public SenhaSegura(String senha) {
         this.senha = senha;

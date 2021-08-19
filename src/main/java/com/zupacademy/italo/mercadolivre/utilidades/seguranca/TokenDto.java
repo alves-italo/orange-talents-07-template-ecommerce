@@ -2,8 +2,8 @@ package com.zupacademy.italo.mercadolivre.utilidades.seguranca;
 
 public class TokenDto {
 
-	private String token;
-	private String tipo;
+	private final String token;
+	private final String tipo;
 
 	public TokenDto(String token, String tipo) {
 		this.token = token;

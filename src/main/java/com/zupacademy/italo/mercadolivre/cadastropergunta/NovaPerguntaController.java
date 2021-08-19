@@ -6,10 +6,12 @@ import com.zupacademy.italo.mercadolivre.cadastroproduto.ProdutoRepository;
 import com.zupacademy.italo.mercadolivre.cadastrousuario.Usuario;
 import com.zupacademy.italo.mercadolivre.utilidades.CentralDeEmail;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,7 +28,7 @@ public class NovaPerguntaController {
     @PostMapping(value = "/produtos/{id}/perguntas")
     @Transactional
     public ResponseEntity<?> adicionaPergunta(@PathVariable("id") Long id, @RequestBody @Valid NovaPerguntaRequest request, @AuthenticationPrincipal Usuario usuarioLogado) {
-        Produto produto = produtoRepository.findById(id).get();
+        Produto produto = produtoRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produto de id" + id + "não encontrado"));
         Pergunta pergunta = request.toModel(produto, usuarioLogado);
 
         produto.adiciona(pergunta);

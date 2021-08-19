@@ -5,6 +5,7 @@ import com.zupacademy.italo.mercadolivre.cadastrousuario.Usuario;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.Objects;
 
@@ -27,10 +28,12 @@ public class Opiniao {
 
     @ManyToOne
     @NotNull
+    @Valid
     private Produto produto;
 
     @ManyToOne
     @NotNull
+    @Valid
     private Usuario dono;
 
     @Deprecated

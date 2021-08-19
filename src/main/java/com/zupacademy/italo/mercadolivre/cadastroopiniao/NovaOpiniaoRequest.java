@@ -10,12 +10,12 @@ public class NovaOpiniaoRequest {
     @NotNull
     @Positive
     @Max(5)
-    private Integer nota;
+    private final Integer nota;
     @NotBlank
-    private String titulo;
+    private final String titulo;
     @NotBlank
     @Length(max = 500)
-    private String descricao;
+    private final String descricao;
 
     public NovaOpiniaoRequest(Integer nota, String titulo, String descricao) {
         this.nota = nota;

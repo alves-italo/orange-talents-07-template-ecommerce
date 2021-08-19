@@ -4,11 +4,11 @@ import com.zupacademy.italo.mercadolivre.cadastroopiniao.Opiniao;
 import com.zupacademy.italo.mercadolivre.detalheusuario.UsuarioResponse;
 
 public class DetalheOpiniaoResponse {
-    private Integer nota;
-    private String titulo;
-    private String descricao;
+    private final Integer nota;
+    private final String titulo;
+    private final String descricao;
 
-    private UsuarioResponse usuario;
+    private final UsuarioResponse usuario;
 
     public DetalheOpiniaoResponse(Opiniao opiniao) {
         this.nota = opiniao.getNota();

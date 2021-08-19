@@ -7,17 +7,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class DetalheProdutoResponse {
-    private String nome;
-    private BigDecimal preco;
-    private String descricao;
+    private final String nome;
+    private final BigDecimal preco;
+    private final String descricao;
 
-    private Double mediaNotas;
-    private Integer quantidadeOpinioes;
+    private final Double mediaNotas;
+    private final Integer quantidadeOpinioes;
 
-    private List<DetalheCaracteristicasProdutoResponse> caracteristicas;
-    private List<DetalheImagemProdutoResponse> imagens;
-    private List<DetalheOpiniaoResponse> opinioes;
-    private List<DetalhePerguntaResponse> perguntas;
+    private final List<DetalheCaracteristicasProdutoResponse> caracteristicas;
+    private final List<DetalheImagemProdutoResponse> imagens;
+    private final List<DetalheOpiniaoResponse> opinioes;
+    private final List<DetalhePerguntaResponse> perguntas;
 
     public DetalheProdutoResponse(Produto produto) {
         this.nome = produto.getNome();

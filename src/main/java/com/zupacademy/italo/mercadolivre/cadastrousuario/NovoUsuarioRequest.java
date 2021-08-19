@@ -10,11 +10,11 @@ public class NovoUsuarioRequest {
     @NotBlank
     @Email
     @ValorUnico(target = Usuario.class, field = "login")
-    private String login;
+    private final String login;
 
     @NotBlank
     @Length(min = 6)
-    private String senha;
+    private final String senha;
 
     public NovoUsuarioRequest(String login, String senha) {
         this.login = login;

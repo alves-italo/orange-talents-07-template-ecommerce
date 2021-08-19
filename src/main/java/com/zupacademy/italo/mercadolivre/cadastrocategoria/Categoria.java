@@ -1,6 +1,8 @@
 package com.zupacademy.italo.mercadolivre.cadastrocategoria;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Categoria {
@@ -8,9 +10,11 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private String nome;
 
     @ManyToOne
+    @Valid
     private Categoria mae;
 
     @Deprecated

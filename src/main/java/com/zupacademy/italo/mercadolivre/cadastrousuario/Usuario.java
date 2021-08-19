@@ -28,7 +28,7 @@ public class Usuario implements UserDetails {
     private String senha;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Perfil> perfis = new ArrayList<>();
+    private final List<Perfil> perfis = new ArrayList<>();
 
     @CreationTimestamp
     @PastOrPresent

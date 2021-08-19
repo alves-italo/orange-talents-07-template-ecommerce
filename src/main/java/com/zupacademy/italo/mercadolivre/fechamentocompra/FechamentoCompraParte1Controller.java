@@ -3,6 +3,7 @@ package com.zupacademy.italo.mercadolivre.fechamentocompra;
 import com.zupacademy.italo.mercadolivre.cadastroproduto.Produto;
 import com.zupacademy.italo.mercadolivre.cadastroproduto.ProdutoRepository;
 import com.zupacademy.italo.mercadolivre.cadastrousuario.Usuario;
+import com.zupacademy.italo.mercadolivre.utilidades.CentralDeEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +21,8 @@ import javax.validation.Valid;
 public class FechamentoCompraParte1Controller {
     @Autowired
     ProdutoRepository produtoRepository;
-
+    @Autowired
+    CentralDeEmail centralDeEmail;
     @PersistenceContext
     EntityManager manager;
 
@@ -34,15 +36,9 @@ public class FechamentoCompraParte1Controller {
         if (abatido) {
             Compra compra = new Compra(request.getQuantidade(), produto, usuarioLogado, gateway);
             manager.persist(compra);
-            if (gateway.equals(GatewayPagamento.pagseguro)) {
-                String uriRetornoPagSeguro = uriComponentsBuilder.path("/retorno-pagseguro/{id}").buildAndExpand(compra.getId()).toString();
-                return "pagseguro.com/" + compra.getId() + "?RedirectUrl=" + uriRetornoPagSeguro;
-            }
-            else {
-                String uriRetornoPaypal = uriComponentsBuilder.path("/retorno-paypal/{id}").buildAndExpand(compra.getId()).toString();
-                return "paypal.com/" + compra.getId() + "?RedirectUrl=" + uriRetornoPaypal;
-            }
+            centralDeEmail.notificaComprador(compra);
 
+            return gateway.criaUrlRetorno(compra, uriComponentsBuilder);
         }
 
         BindException problemaComEstoque = new BindException(request,

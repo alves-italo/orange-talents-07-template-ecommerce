@@ -3,8 +3,8 @@ package com.zupacademy.italo.mercadolivre.detalheproduto;
 import com.zupacademy.italo.mercadolivre.cadastropergunta.Pergunta;
 
 public class DetalhePerguntaResponse {
-    private String titulo;
-    private String autor;
+    private final String titulo;
+    private final String autor;
 
     public DetalhePerguntaResponse(Pergunta pergunta) {
         this.titulo = pergunta.getTitulo();

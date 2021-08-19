@@ -8,10 +8,10 @@ import javax.validation.constraints.NotBlank;
 public class NovaCategoriaRequest {
     @NotBlank
     @ValorUnico(target = Categoria.class, field = "nome")
-    private String nome;
+    private final String nome;
 
     @ExisteId(domainClass = Categoria.class, fieldName = "id")
-    private Long idCategoriaMae;
+    private final Long idCategoriaMae;
 
     public NovaCategoriaRequest(String nome, Long idCategoriaMae) {
         this.nome = nome;

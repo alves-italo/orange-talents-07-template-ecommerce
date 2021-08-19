@@ -43,13 +43,13 @@ public class Produto {
     private Set<CaracteristicaProduto> caracteristicas;
 
     @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
-    private Set<ImagemProduto> imagens = new HashSet<>();
+    private final Set<ImagemProduto> imagens = new HashSet<>();
 
     @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
-    private Set<Opiniao> opinioes = new HashSet<>();
+    private final Set<Opiniao> opinioes = new HashSet<>();
 
     @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
-    private Set<Pergunta> perguntas = new HashSet<>();
+    private final Set<Pergunta> perguntas = new HashSet<>();
 
     @ManyToOne
     private Usuario dono;
@@ -133,5 +133,9 @@ public class Produto {
         }
 
         return false;
+    }
+
+    public Usuario getDono() {
+        return this.dono;
     }
 }

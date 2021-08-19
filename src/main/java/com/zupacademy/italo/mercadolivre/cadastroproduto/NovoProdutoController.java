@@ -1,8 +1,6 @@
 package com.zupacademy.italo.mercadolivre.cadastroproduto;
 
 import com.zupacademy.italo.mercadolivre.cadastrocategoria.CategoriaRepository;
-import com.zupacademy.italo.mercadolivre.cadastroopiniao.NovaOpiniaoRequest;
-import com.zupacademy.italo.mercadolivre.cadastroopiniao.Opiniao;
 import com.zupacademy.italo.mercadolivre.cadastrousuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,7 +37,7 @@ public class NovoProdutoController {
     @Transactional
     public ResponseEntity<?> adicionaImagens(@PathVariable("id") Long id, @Valid NovaImagemRequest imagensRequest, @AuthenticationPrincipal Usuario usuarioLogado) {
         Set<String> urlImagens = imageUploader.enviar(imagensRequest.getImagens());
-        Produto produto = produtoRepository.findById(id).get();
+        Produto produto = produtoRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Produto de id" + id + "não encontrado"));
 
         if (!produto.pertenceA(usuarioLogado)) throw new ResponseStatusException(HttpStatus.FORBIDDEN);
 
